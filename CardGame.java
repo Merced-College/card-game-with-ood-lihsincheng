@@ -36,7 +36,7 @@ public class CardGame {
 			String[] fields  = input.nextLine().split(",");
 			//	public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
 			Card newCard = new Card(fields[0], fields[1].trim(),
-					Integer.parseInt(fields[2].trim()), fields[3]);
+					Integer.parseInt(fields[2].trim()), fields[3].trim());
 			// Add new card to the deck
 			deckOfCards.add(newCard);	
 		}
@@ -48,7 +48,7 @@ public class CardGame {
 
 		//deal the player 5 cards
 		for(int i = 0; i < 4; i++) {
-			playerCards.add(deckOfCards.remove(0));
+			playerCards.add(deckOfCards.remove(i));
 		}
 		// Display player's cards
 		System.out.println("players cards");

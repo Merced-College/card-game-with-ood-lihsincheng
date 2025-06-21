@@ -33,12 +33,13 @@ public class Card{
     public String toString(){
         return rank + " of " + suit;
     }
-
+    // Add equals() method to compare two Card objects
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true; // Check if the same object
-        if (obj == null || getClass() != obj.getClass()) return false; // Check for null or different class
-        Card card = (Card) obj; // Cast to Card type
-        return value == card.value && suit.equals(card.suit) && rank.equals(card.rank); // Compare attributes
-    }
+        if (this == obj) return true;
+        if (!(obj instanceof Card)) return false;
+        Card other = (Card) obj;
+        // Compare ONLY ranks for pairing
+        return this.rank.equalsIgnoreCase(other.rank);
+}
 }
